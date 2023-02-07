@@ -1,0 +1,308 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
+}
+body{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.sidebar{
+    height: 100%;
+    width: 78px;
+    background-color: #ddecf8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 6px 14px;
+    transition: all 0.5s ease;
+}
+.sidebar.active{
+    width:200px;
+}
+.sidebar .logo_content .logo{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity:0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.sidebar.active .logo_content .logo{
+    opacity: 1;
+    pointer-events: none;
+}
+.logo_content .logo i{
+    font-size: 28px;
+    margin-right: 5px;
+}
+.logo_content .logo .logo_name{
+    margin-left: 1rem;
+    font-size: 20px;
+    font-weight: 400;
+}
+.sidebar #btn{
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+.sidebar.active #btn{
+    left: 90%;
+}
+.sidebar ul{
+    margin-top: 20px;
+}
+.sidebar ul li{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+    line-height: 50px;
+    border-radius: 12px;
+}
+.sidebar ul li .tooltip{
+    position: absolute;
+    left:122px;
+    top:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 6px;
+    height: 35px;
+    width:122px;
+    line-height: 35px;
+    text-align:center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    transition:0s;
+    opacity:0;
+    pointer-events:none;
+    display: block;
+}
+.sidebar.active ul li .tooltip{
+    display: none;
+}
+.sidebar ul li:hover .tooltip{
+    transition: all 0.5s ease;
+    opacity:1;
+    top:50%;
+}
+.sidebar ul li a{
+    display:flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+.sidebar ul li a:hover{
+    background:cornflowerblue;
+}
+
+.sidebar ul li a i{
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.sidebar .links_name{
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.sidebar.active .links_name{
+    opacity: 1;
+    pointer-events: auto;
+}
+.sidebar .profile_content{
+    background-color: #c5eaf6;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.sidebar .profile_content .profile{
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    transition: all 0.4s ease;
+}
+.sidebar.active .profile_content .profile{
+    background:none;
+
+}
+.profile_content .profile .profile_details{
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.sidebar.active .profile .profile_details{
+    opacity: 1;
+    pointer-events: auto;
+}
+.profile .profile_details .name{
+    font-size: 15px;
+    font-weight: 400;
+    margin-left:2rem;
+}
+.profile #log_out {
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.sidebar.active .profile #log_out{
+    left: 70%;
+}
+.home_content{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 78px);
+    left:78px;
+    transition: all 0.5s ease;
+}
+.home_content .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 12px;
+}
+.sidebar.active ~ .home_content{
+    width: calc(100% - 200px);
+    left: 220px;
+}
+.first_card{
+    position: relative;
+    margin-top: 10rem;
+    margin-left: 25rem;
+}
+.first_card button{
+    opacity: 1;
+    justify-self: center;
+    margin-left: 1.5rem;
+}
+#main_button.fade{
+    opacity: 0;
+}
+#idCard{
+    transition: transform 1s;
+}
+#idCard.activate{
+    transform: translateY(-7rem);
+}
+.second_card{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top:-6rem;
+    margin-left:-8rem;
+    background-color: lightblue;
+    height: 8rem;
+    width: 10rem;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.second_card a{
+    font-family: Bahnschrift;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.second_card a :focus{
+    color: black;
+}
+.second_card.activate{
+    display: flex;
+}
+.second_card:hover{
+    width: 12rem;
+    height: 10rem;
+    animation: zoom-out ease-out;
+    transform: scale(1);
+    background-color: #8dd6e5;
+}
+.third_card{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top:-6rem;
+    margin-left:2.5rem;
+    background-color: aliceblue;
+    height: 8rem;
+    width: 10rem;
+    border-radius: 0px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+.third_card a{
+    font-family: Bahnschrift;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.third_card a :focus{
+    color: black;
+}
+.third_card.activate{
+    display: flex;
+}
+.third_card:hover{
+    width: 12rem;
+    height: 10rem;
+    transform: rotate(360deg);
+    background-color: #b4e9fc;
+}
+
+.fourth_card{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top:-6rem;
+    margin-left:13rem;
+    background-color: lightcyan;
+    height: 8rem;
+    width: 10rem;
+    border-radius: 70px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+.fourth_card a{
+    font-family: Bahnschrift, serif;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.fourth_card a :focus{
+    color: black;
+}
+.fourth_card.activate{
+    display: flex;
+}
+.fourth_card:hover{
+    width: 12rem;
+    height: 10rem;
+    transform: rotateY(-40deg);
+    background-color: #c0fdfd;
+}
+

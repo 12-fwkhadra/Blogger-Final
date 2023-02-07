@@ -1,0 +1,62 @@
+html{
+    height:100%;
+    overflow:hidden;
+}
+body{
+    background-color: #cbe1ee;
+    background-image: url("Login-bro.png");
+    background-position: right;
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position-y: 15rem;
+    background-position-x: 50rem;
+    position:absolute;
+}
+.con{
+    background-color: white;
+    position: relative;
+    width: 450px;
+    height: 470px;
+    margin: 10rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    left:13rem;
+    bottom:4rem;
+}
+h3{
+    padding-top:2rem;
+    color: #2a2a2a;
+    text-align:center;
+    font-family: "Times New Roman", Times, serif;
+}
+h4{
+    padding-bottom:1rem;
+    color: #2a2a2a;
+    text-align:center;
+    font-family: "Times New Roman", Times, serif;
+}
+.con form{
+    postion:absolute;
+    width:300px;
+    position:center;
+    margin:1.75rem;
+}
+form input{
+    width:100%;
+    padding: 10px 5px ;
+    margin: 5px;
+    border: 0;
+    border-bottom: 1px solid #999;
+    background: transparent;
+    outline:none;
+}
+::placeholder{
+    color:#777;
+}
+button{
+    margin-top:1rem;
+    cursor: pointer;
+}
+.text{
+    margin:2rem;
+}

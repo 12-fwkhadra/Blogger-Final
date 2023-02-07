@@ -1,0 +1,24 @@
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "Profile";
+}
+
+<div class="home_content">
+    <div class="text">Profile</div>
+    <div class="first_card">
+        <i class="fas fa-address-card fa-10x" id="idCard"></i>
+        <br>
+        <button class="btn btn-outline-secondary" id="main_button">View my Profile</button>
+        @* <div class="second_card">
+            <a>Bookmarks</a>
+            </div> *@
+        <div class="second_card">
+            <a asp-controller="Follow" asp-action="Topics">Following</a>
+        </div>
+        <div class="third_card">
+            <a asp-contoller="FeedPage" asp-action="MyQuestions">My Questions</a>
+        </div>
+    </div>
+
+</div>
+<script src="~/MyStaticFiles/CSS/Profile.js"></script>

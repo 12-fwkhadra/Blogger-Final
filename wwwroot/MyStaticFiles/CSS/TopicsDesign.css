@@ -1,0 +1,19 @@
+body{
+    margin-top: 5rem;
+    margin-left: 7rem;
+    margin-right: 7rem;
+}
+.card-img-top{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 60%;
+}
+.IMG{
+    position: center;
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+.BUTTON{
+    margin-top: 1rem;
+    text-align: center;
+}

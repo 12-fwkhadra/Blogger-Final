@@ -1,0 +1,87 @@
+@* @model RegisterViewModel
+    @{
+    Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+
+    <head>
+    <title>Sign In</title>
+    <link rel="icon" href="~/MyStaticFiles/chat.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/MyStaticFiles/CSS/Login2Design.css">
+    </head>
+
+    <body>
+    <div class="con">
+    <h3>Sign in to Blogger</h3>
+    <h4>Create an Account</h4>
+    <form method="post" asp-controller="Follow" asp-action="Topics">
+
+    <input asp-for="Username" type="text" placeholder="Username">
+    <span asp-validation-for="Username" class="text-danger"></span>
+
+    <input asp-for="Password" type="password" placeholder="Password">
+    <span asp-validation-for="Password" class="text-danger"></span>
+
+    <input asp-for="ConfirmPassword" type="password" placeholder="Confirm Password">
+
+    <button type="submit" class="btn btn-primary">Sign In</button>
+    </form>
+    <div class="text">
+    Already have an account?<a asp-action="Enter"> Log in</a>
+    </div>
+    </div>
+
+    </body>
+
+    </html> *@
+@model RegisterViewModel
+@{
+
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Sign In</title>
+    <link rel="icon" href="~/MyStaticFiles/chat.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/MyStaticFiles/CSS/Login2Design.css">
+</head>
+
+<body>
+    <section class="reg">
+
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="con">
+            <h3>Sign in to Blogger</h3>
+            <h4>Create an Account</h4>
+            <form method="post" asp-action="Register">
+                <input asp-for="Username" type="text" placeholder="Username">
+                <span asp-validation-for="Username" class="text-danger"></span>
+
+                <input asp-for="Password" type="password" placeholder="Password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+
+                <input asp-for="ConfirmPassword" type="password" placeholder="Confirm Password">
+                <div class="row">
+                    <div class="offset-2 col-sm-4">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+
+            </form>
+            <div class="text">
+                Already have an account?<a asp-action="Enter"> Log in</a>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

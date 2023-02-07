@@ -1,0 +1,64 @@
+@model ReplyModel
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "Reply";
+}
+
+
+<form asp-controller="FeedPage" asp-action="Reply">
+    <div class="home_content">
+        <div class="text">Ask your question below</div>
+        <div class="con">
+
+            <h6><i class="fas fa-edit"></i>&nbsp;Write your answer below:</h6>
+            <textarea class="form-control" asp-for="@Model.AnswerText" class="box" aria-label="With textarea"
+                placeholder="write here..."></textarea>
+            <h6><i class="fas fa-edit"></i>&nbsp;Write your answer Details below:</h6>
+            <textarea class="form-control" asp-for="@Model.AnswerDetails" class="box" aria-label="With textarea"
+                placeholder="write here..."></textarea>
+            <button type="submit" class="btn btn-outline-primary"><i class="fas fa-comment-alt"></i>&nbsp;&nbsp;Post
+                Reply</button>
+</form>
+
+<div class="IMG" style="margin-top: 3rem;">
+    <img id="quesImg" style="height: 350px;width: 380px;" src="~/My answer-cuate (1).png" />
+</div>
+
+@* @model ReplyModel
+
+
+    @{
+    Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+
+    <head>
+    <title>Ask a Question</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyStaticFiles/CSS/QuestionDesign.css" asp-append-version="true" />
+    </head>
+
+    <body>
+
+    <main class="m-3 pr-5">
+    <form method="post" asp-controller="FeedPage" asp-action="Reply">
+    <div class="input-group m-3">
+    <span class="flex align-items-baseline">Enter your Answer:</span>
+    <textarea asp-for="@Model.AnswerText" class="form-control" aria-label="With textarea"></textarea>
+    </div>
+    <div class="input-group m-3">
+    <span class="flex align-items-baseline">Enter details reply:</span>
+    <textarea asp-for="@Model.AnswerDetails" class="form-control" aria-label="With textarea"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary m-3">Post your Answer</button>
+    </form>
+    </main>
+    </body>
+
+    </html> *@

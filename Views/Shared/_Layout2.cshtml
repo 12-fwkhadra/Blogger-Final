@@ -1,0 +1,90 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" href="chat.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyStaticFiles/CSS/FeedPageDesign.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyStaticFiles/CSS/Profile.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyStaticFiles/CSS/QuestionPostDesign.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+
+</head>
+
+<body>
+    <div class="sidebar active">
+        <div class="logo_content">
+            <div class="logo">
+                <img class="rounded-pill" id="logo" src="~/MyStaticFiles/chat.png" title="Chatter"
+                    alt="can't be displayed" style="height: 30px; width: 30px;" />
+                <div class="logo_name">Blogger</div>
+            </div>
+            <i class="fas fa-bars" id="btn"></i>
+        </div>
+        <ul class="nav_list">
+            <li>
+                <a>
+                    @* <i class="fas fa-home"></i> *@
+                    <span class="links_name"><a asp-controller="FeedPage" asp-action="FeedPage">Home</a></span>
+                </a>
+                @* *@
+            </li>
+            <li>
+                <a>
+                    @* <i class="fas fa-question-circle"></i> *@
+                    <span class="links_name"><a asp-controller="FeedPage" asp-action="Ask">Ask</a></span>
+                </a>
+                @* <span class="tooltip">Ask</span> *@
+            </li>
+            <li>
+                <a>
+                    @* <i class="fas fa-user"></i> *@
+                    <span class="links_name"><a asp-controller="FeedPage" asp-action="Profile">Profile</a></span>
+                </a>
+                @* <span class="tooltip">Profile</span> *@
+            </li>
+            <li>
+                <a>
+                    @* <i class="fas fa-user"></i> *@
+                    <span class="links_name"><a asp-controller="Follow" asp-action="Topics">Follow Topics</a></span>
+                </a>
+                @* <span class="tooltip">Profile</span> *@
+            </li>
+        </ul>
+
+        @using Microsoft.AspNetCore.Identity
+        @inject SignInManager<User> signInManager
+        @if (signInManager.IsSignedIn(User))
+        {
+            <div class="profile_content">
+                <div class="profile" style="display: flex">
+                    <div class="profile_details">
+                        <div class="name_job">
+                            <div class="name">@User.Identity.Name</div>
+                        </div>
+                    </div>
+
+                    <form method="post" asp-action="Logout" asp-controller="Account" asp-area="">
+                        <button type="submit" id="log_out"> <i class="fas fa-sign-out-alt"> </i> </button>
+                    </form>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div>sss</div>
+        }
+    </div>
+    @RenderBody()
+    <script src="~/MyStaticFiles/CSS/FeedPage.js"></script>
+
+</body>
+
+</html>

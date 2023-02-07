@@ -1,0 +1,42 @@
+@model EnterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Log in</title>
+    <link rel="icon" href="~/MyStaticFiles/chat.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/MyStaticFiles/CSS/Login2Design.css">
+
+</head>
+
+<body>
+
+    <div class="con">
+        <h3>Log in to Blogger</h3>
+        <h4>Enter your Account</h4>
+        <form method="post" asp-action="Enter" asp-route-returnURL="@Model.ReturnUrl">
+
+            <input asp-for="Username" type="text" placeholder="Username" id="username" aria-describedby="userName">
+            <span asp-validation-for="Username" class="text-danger"></span>
+
+            <input asp-for="Password" type="password" placeholder="Password" id="password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <input type="checkbox" title="Remember Me" asp-for="RememberMe" class="form-check" />
+            <label>Remember Me</label>
+
+
+            <button asp-controller="Account" asp-action="Enter" type="submit" class="btn btn-primary">Log
+                In</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

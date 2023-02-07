@@ -1,0 +1,36 @@
+@model AskModel
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "Ask";
+}
+
+<form method="post" asp-controller="FeedPage" asp-action="Ask">
+    <div class="home_content">
+        <div class="text">Ask your question below</div>
+        <div class="con">
+            <h6><i class="fas fa-edit"></i>&nbsp;Write your question below:</h6>
+            <textarea class="form-control" asp-for="@Model.QuestionText" class="box" aria-label="With textarea"
+                placeholder="write here..."></textarea>
+            <h6><i class="fas fa-edit"></i>&nbsp;Write your question details below:</h6>
+            <textarea class="form-control" asp-for="@Model.QuestionDetails" class="box" aria-label="With textarea"
+                placeholder="write here..."></textarea>
+
+            <h6><i class="fas fa-check-square"></i>&nbsp;Choose from the list the question's topic:</h6>
+            <div class="form-select">
+                <select asp-for="@Model.categoryId">
+                    <option hidden disabled selected>Choose an option</option>
+                    @foreach (var item in Model.categLists)
+                    {
+                        <option value="@item.categoryId">@item.categoryName</option>
+
+                    }
+
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary"><i class="fas fa-comment-alt"></i>&nbsp;&nbsp;Post
+                Question</button>
+</form>
+<div class="IMG">
+    <img id="quesImg" src="~/Man thinking-bro.png" />
+</div>

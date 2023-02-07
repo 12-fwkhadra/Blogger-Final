@@ -1,0 +1,48 @@
+@model List<Category>
+@{
+    ViewData["Title"] = "Topics";
+}
+
+
+<div class="d-flex justify-content-around flex-wrap">
+    @foreach (var item in Model)
+    {
+        <div class="card py-1 my-3" style="width: 18rem;">
+@*            <div class="IMG">
+                <img src="maths.png" class="card-img-top" alt="Math">
+            </div>
+*@
+            <div class="card-body">
+                <h5 class="card-title">@item.categoryName</h5>
+                <p class="card-text">This topic will introduce you more to various @item.categoryName subjects.</p>
+                <form asp-action="AddUserToTopic">
+                    <input type="hidden" value="@item.categoryId" name="Id" />
+                      <div class="d-flex justify-content-between text-center">
+                        @if(@item.userCategories.Count > 0)
+                        {
+                         <span class="badge badge-info">(@item.userCategories.Count) Follower</span>
+                        }
+                         
+                    @if(@item.userCategories.Find(x => x.User.UserName == User.Identity.Name) != null)
+                    {
+                    <button type="submit" class="btn btn-danger"> 
+                        <i class="fa fa-minus"></i> <span>Unfollow</span>
+                        </button>
+                    } else
+                    {
+                        <button type="submit" class="btn btn-warning"> 
+                        <i class="fa fa-plus"></i> <span>Follow</span>
+                        </button>
+
+                    }
+                </div>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+
+    <a class="btn btn-success" asp-controller="FeedPage" asp-action="FeedPage">
+        Go to Feed Page
+    </a>
+

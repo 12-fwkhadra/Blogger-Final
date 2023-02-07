@@ -1,0 +1,48 @@
+@model FeedModel
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "My Questions";
+}
+
+<div class="home_content">
+    <div class="text">Feed Page</div>
+    <div class="accordion">
+        @foreach (var item in Model.questions)
+        {
+            <div class="accordion-item">
+                <div class="accordion-item-header">
+                    <div class="subber">
+                        <div>
+                            @item.QuestionText
+                        </div>
+                    </div>
+
+                    @* <ul>
+                        <li>Topic: @item.category.categoryName</li>
+                        </ul> *@
+
+                </div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <div class="accordion-item-body-content-heading">
+                            Date:
+                        </div>
+                        <div class="accordion-item-body-content-body">
+                            @item.QuestionDetails
+                        </div>
+                        <div class="accordion-item-body-content-buttons">
+                            <a asp-controller="FeedPage" asp-action="Answers" asp-route-id="@item.questionId"
+                            class="btn btn-outline-primary"><i
+                                class="fas fa-comment-alt"></i>&nbsp;&nbsp;Answers(nb)</a>
+
+                            <a asp-controller="FeedPage" asp-action="Reply" asp-route-id="@item.questionId"
+                            class="btn btn-outline-primary">Reply</a>
+                            <button class="btn btn-outline-primary" asp-controller="FeedPage" asp-action="Save"><i
+                                class="fas fa-bookmark"></i>&nbsp;&nbsp;Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
